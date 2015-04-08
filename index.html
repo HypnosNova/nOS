@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="module/window/css/drag.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/codemirror.css">
+		<link rel="stylesheet" href="css/default.css">
+		<link rel="stylesheet" type="text/css" href="css/scorllbar.css" />
+		<link href="css/slideme.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="module/time/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="module/sideMenu/css/style.css" />
+		<script src="js/jquery.js"></script>
+		<script src="js/codemirror.js"></script>
+		<!--<script src="js/glsl.js"></script>-->
+		<script src="js/slideme.min.js"></script>
+		<script src="js/html2canvas.min.js"></script>
+	</head>
+
+	<body scroll="no" style="background-image: url(img/bg.jpg);background-size: cover;">
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".wrapper-slider").SlideMe();
+			});
+		</script>
+		<div class="wrapper-slider">
+		</div>
+		<div id="osMain">
+		</div>
+		<div class="meny">
+
+			<!--最小话窗口图标存放的位置-->
+			<div class="item_content">
+				<ul id="sideBarContainer">
+				</ul>
+			</div>
+
+			<div id="clock" class="dark">
+				<div class="display">
+					<div class="weekdays">
+					</div>
+					<div class="ampm">
+					</div>
+					<div class="digits">
+					</div>
+					<div class="date" style="margin-top: 10px;font-family: dig;font-weight: bold;">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="meny-arrow"></div>
+
+		<div class="contents" id="codeContainer">
+		</div>
+	</body>
+	<script src="js/Modernizr.js"></script>
+	<script src="module/explore/js/explore.js"></script>
+	<script src="js/meny.js"></script>
+	<script src="js/touchable.js"></script>
+	<script src="js/later.js"></script>
+	<script src="module/sideMenu/js/dragmove.js"></script>
+	<script src="js/background.js"></script>
+	<script src="module/window/js/drag.js"></script>
+	<script src="js/appInfo.js"></script>
+	<script src="module/time/js/moment.min.js"></script>
+	<script src="module/time/js/script.js"></script>
+
+	<script>
+		$(function() {
+			$("#3D_Ball_Maze").unbind("click").bind("click", ballmaze);
+			$("#PDF_Reader").unbind("click").bind("click", pdfreader);
+			$("#3D_Map").unbind("click").bind("click", map3d);
+			$("#Spider_Solitaire").unbind("click").bind("click", spider);
+			setInterval('setIframeHeight()', 10); //动态调节
+			setInterval('var now=new Date();$(".date").html(now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate())', 1000);
+		});
+		var flag = true;
+
+		function changeFlage() {
+			flag = true;
+		}
+
+		function ballmaze(event) {
+			if (flag) {
+				flag = false;
+				createWindows(ballMaze);
+				setTimeout(changeFlage, 50);
+			}
+		}
+
+		function map3d(event) {
+			if (flag) {
+				flag = false;
+				createWindows(map3D);
+				setTimeout(changeFlage, 50);
+			}
+		}
+
+		function pdfreader(event) {
+			if (flag) {
+				flag = false;
+				createWindows(pdfReader);
+				setTimeout(changeFlage, 50);
+			}
+		}
+
+		function spider(event) {
+			if (flag) {
+				flag = false;
+				createWindows(spiderCard);
+				setTimeout(changeFlage, 50);
+			}
+		}
+
+		function setIframeHeight() {
+			var array = document.getElementsByName("appframe")
+			for (var i = 0; i < array.length; i++) {
+				//alert($(array[i].parentNode).attr("id"))
+				$(array[i].parentNode).css("width", (array[i].parentNode.parentNode.offsetWidth - 12) + "px");
+				$(array[i].parentNode).css("height", (array[i].parentNode.parentNode.offsetHeight - 40) + "px");
+				array[i].height = array[i].parentNode.offsetHeight;
+			}
+		}
+	</script>
+
+</html>

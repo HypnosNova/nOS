@@ -1,0 +1,47 @@
+
+.wrapper-container{margin-top:20px;}	/* Not delete */
+.wrapper-container .container{width:100%;text-align:center;}
+
+/* Container */
+
+.wrapper-slider {
+	width: 800px;
+	z-index: 1;
+	position: fixed;
+}
+.wrapper-slider .label {
+	z-index: 2;
+	position: absolute;
+	bottom: 0px;
+	height: 20px;
+	width: 10%;
+	left: 45%;
+	background-color: rgba(0,0,0,0.4);
+	user-select:none;
+	border-radius: 0 0 10px 10px;
+	color:gray;
+	text-align: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	cursor: move;
+}
+.wrapper-slider .label.mousedown {
+	cursor: s-resize;
+}
+
+.wrapper-slider .label.mousedown .one {
+	background-color: #3E4A50;
+}
+.wrapper-slider .container {
+	overflow: auto;
+	color: #FFF;
+	position: absolute;
+	top: 0;
+	height: 780px;
+	width: 100%;
+	background: url("../img/liner.png");
+}
+.wrapper-slider .container .content {
+	padding: 10px 0;
+}
