@@ -64,13 +64,14 @@ a.open:hover {
 }
 #drag .title a.max {
 	background-position: -60px 0;
+	display: none;
 }
 #drag .title a.max:hover {
 	background-position: -60px -29px;
 }
 #drag .title a.revert {
 	background-position: -149px 0;
-	display: none;
+	
 }
 #drag .title a.revert:hover {
 	background-position: -149px -29px;

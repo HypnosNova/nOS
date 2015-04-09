@@ -16,8 +16,8 @@ var get = {
 		return (obj || document).getElementsByTagName(elem)
 	}
 };
-var dragMinWidth = 250;
-var dragMinHeight = 124;
+var dragMinWidth = 400;
+var dragMinHeight = 225;
 var windowsArray = [];
 /*-------------------------- +
   拖拽函数
@@ -28,6 +28,7 @@ function drag(oDrag, handle) {
 		var oMax = get.byClass("max", oDrag)[0];
 		var oRevert = get.byClass("revert", oDrag)[0];
 		var oClose = get.byClass("close", oDrag)[0];
+		
 		handle = handle || oDrag;
 		handle.style.cursor = "move";
 		handle.onmousedown = function(event) {
@@ -64,15 +65,15 @@ function drag(oDrag, handle) {
 			//最大化按钮
 		oMax.onclick = function() {
 				oDrag.style.top = oDrag.style.left = 0;
-				oDrag.style.width = document.documentElement.clientWidth - 2 + "px";
-				oDrag.style.height = document.documentElement.clientHeight - 2 + "px";
+				oDrag.style.width = "100%"; //document.documentElement.clientWidth - 2 + "px";
+				oDrag.style.height = "100%"; //document.documentElement.clientHeight - 2 + "px";
 				this.style.display = "none";
 				oRevert.style.display = "block";
 			}
 			//还原按钮
 		oRevert.onclick = function() {
-				oDrag.style.width = dragMinWidth + "px";
-				oDrag.style.height = dragMinHeight + "px";
+				oDrag.style.width = $(oDrag).attr("midW");
+				oDrag.style.height = $(oDrag).attr("midH");
 				oDrag.style.left = (document.documentElement.clientWidth - oDrag.offsetWidth) / 2 + "px";
 				oDrag.style.top = (document.documentElement.clientHeight - oDrag.offsetHeight) / 2 + "px";
 				this.style.display = "none";
@@ -106,15 +107,15 @@ function drag(oDrag, handle) {
 					var img = document.createElement("img")
 					img.src = strDataURI;
 					div.appendChild(img);
-					div.style.position="absolute";
-					div.style.zIndex=2;
-					div.style.left=oDrag.style.left;
-					div.style.top=oDrag.style.top;
+					div.style.position = "absolute";
+					div.style.zIndex = 2;
+					div.style.left = oDrag.style.left;
+					div.style.top = oDrag.style.top;
 					document.body.appendChild(div);
 					$(oDrag).remove();
-					explore(div,strDataURI);
+					explore(div, strDataURI);
 				});
-				
+
 			}
 			//阻止冒泡
 		oMin.onmousedown = oMax.onmousedown = oClose.onmousedown = function(event) {
@@ -137,7 +138,8 @@ function resize(oParent, handle, isLeft, isTop, lockX, lockY) {
 		var iParentLeft = oParent.offsetLeft;
 		var iParentWidth = oParent.offsetWidth;
 		var iParentHeight = oParent.offsetHeight;
-
+		var theIframe=oParent.getElementsByTagName("iframe")[0];
+		$(theIframe).css("pointer-events","none");
 		document.onmousemove = function(event) {
 			var event = event || window.event;
 
@@ -164,8 +166,11 @@ function resize(oParent, handle, isLeft, isTop, lockX, lockY) {
 			return false;
 		};
 		document.onmouseup = function() {
+			oParent.setAttribute("midW", oParent.style.width);
+			oParent.setAttribute("midH", oParent.style.height);
 			document.onmousemove = null;
 			document.onmouseup = null;
+			$(theIframe).css("pointer-events","auto");
 		};
 		return false;
 	}
@@ -194,9 +199,11 @@ function createWindows(app) {
 	$(oDrag).css("zIndex", "" + windowsArray.length);
 	oDrag.setAttribute("id", "drag");
 	oDrag.setAttribute("name", "drag");
+	oDrag.setAttribute("midW", "800px");
+	oDrag.setAttribute("midH", "450px");
 	oDrag.setAttribute("appIcon", app.appIcon);
-	$(oDrag).attr("appTitle",app.appTitle);
-	$(oDrag).append('<div class="title"><img style="width:'+22+'px;float:left" src="img/icons/'+app.appIcon+'"/><h2>&nbsp' + app.appTitle + '</h2><div><a class="min" href="javascript:;" title="最小化"></a><a class="max" href="javascript:;" title="最大化"></a><a class="revert" href="javascript:;" title="还原"></a><a class="close" href="javascript:;" title="关闭"></a></div>')
+	$(oDrag).attr("appTitle", app.appTitle);
+	$(oDrag).append('<div class="title"><img style="width:' + 22 + 'px;float:left" src="img/icons/' + app.appIcon + '"/><h2>&nbsp' + app.appTitle + '</h2><div><a class="min" href="javascript:;" title="最小化"></a><a class="max" href="javascript:;" title="最大化"></a><a class="revert" href="javascript:;" title="还原"></a><a class="close" href="javascript:;" title="关闭"></a></div>')
 		.append('<div class="resizeL"></div>')
 		.append('<div class="resizeT"></div>')
 		.append('<div class="resizeR"></div>')
@@ -227,7 +234,11 @@ function createWindows(app) {
 	resize(oDrag, oT, false, true, true, false);
 	resize(oDrag, oR, false, false, false, true);
 	resize(oDrag, oB, false, false, true, false);
-
-	oDrag.style.left = (document.documentElement.clientWidth - oDrag.offsetWidth) / 2 + "px";
-	oDrag.style.top = (document.documentElement.clientHeight - oDrag.offsetHeight) / 2 + "px";
+	//
+	//	oDrag.style.left = (document.documentElement.clientWidth - oDrag.offsetWidth) / 2 + "px";
+	//	oDrag.style.top = (document.documentElement.clientHeight - oDrag.offsetHeight) / 2 + "px";
+	//	
+	oDrag.style.top = oDrag.style.left = 0;
+	oDrag.style.width = "100%"; //document.documentElement.clientWidth - 2 + "px";
+	oDrag.style.height = "100%"; //document.documentElement.clientHeight - 2 + "px";
 }
