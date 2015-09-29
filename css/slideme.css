@@ -10,6 +10,7 @@
 	position: fixed;
 }
 .wrapper-slider .label {
+	display: none;
 	z-index: 2;
 	position: absolute;
 	bottom: 0px;
@@ -45,3 +46,17 @@
 .wrapper-slider .container .content {
 	padding: 10px 0;
 }
+
+#closeBtn{
+	position: absolute;
+	float: right;
+	margin-top:0;
+	margin-left: 760px;
+	z-index: 99999;
+	font-family: "微软雅黑";
+	font-size: 36px;
+	font-weight: bold;
+	color: #ddd;
+	cursor: pointer;
+}
+#closeBtn:hover{color: #fff;}

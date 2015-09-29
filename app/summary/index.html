@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+
+		<script src="js/jquery-1.7.1.min.js"></script>
+
+		<script src="js/three66.min.js"></script>
+		<script src="js/flipbook.preview.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/flipbook.style.css">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var options = {
+					pages: [{
+						src: "images/book1/page1.jpg",
+						thumb: "images/book1/thumb1.jpg",
+						title: "封皮"
+					}, {
+						src: "images/book1/page2.jpg",
+						thumb: "images/book1/thumb2.jpg",
+						title: "概述"
+					}, {
+						src: "images/book1/page3.jpg",
+						thumb: "images/book1/thumb3.jpg",
+						title: ""
+					}, {
+						src: "images/book1/page4.jpg",
+						thumb: "images/book1/thumb4.jpg",
+						title: "简介"
+					}, {
+						src: "images/book1/page5.jpg",
+						thumb: "images/book1/thumb5.jpg",
+						title: ""
+					}, {
+						src: "images/book1/page6.jpg",
+						thumb: "images/book1/thumb6.jpg",
+						title: "优缺点"
+					}, {
+						src: "images/book1/page7.jpg",
+						thumb: "images/book1/thumb7.jpg",
+						title: ""
+					}, {
+						src: "images/book1/page8.jpg",
+						thumb: "images/book1/thumb8.jpg",
+						title: "应用"
+					}, {
+						src: "images/book1/page9.jpg",
+						thumb: "images/book1/thumb9.jpg",
+						title: ""
+					}, {
+						src: "images/book1/page10.jpg",
+						thumb: "images/book1/thumb10.jpg",
+						title: "IDE"
+					}, {
+						src: "images/book1/page11.jpg",
+						thumb: "images/book1/thumb11.jpg",
+						title: ""
+					}, {
+						src: "images/book1/page12.jpg",
+						thumb: "images/book1/thumb12.jpg",
+						title: "如何学习"
+					}, {
+						src: "images/book1/page13.jpg",
+						thumb: "images/book1/thumb13.jpg",
+						title: ""
+					}, {
+						src: "images/book1/page14.jpg",
+						thumb: "images/book1/thumb14.jpg",
+						title: "书推荐"
+					}, {
+						src: "images/book1/page15.jpg",
+						thumb: "images/book1/thumb15.jpg",
+						title: ""
+					}, {
+						src: "images/book1/page1.jpg",
+						thumb: "images/book1/thumb1.jpg",
+						title: "封皮"
+					}],
+					lightBox: false,
+					webgl: true,
+					skin: "dark",
+					downloadPdfUrl: "book1.pdf"
+				};
+
+				$("#book1").flipBook(options);
+			})
+		</script>
+
+	</head>
+
+	<body>
+		<div id="book1">
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,666 @@
+{
+  "slides": [
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 68,
+          "y": 162,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 70,
+          "text": "<font face=\"Ubuntu\">AngularJS——前端MVC框架</font>",
+          "selected": false
+        },
+        {
+          "src": "http://img2.imgtn.bdimg.com/it/u=1465428309,3869207547&fm=21&gp=0.jpg",
+          "type": "Image",
+          "x": 281,
+          "y": 303,
+          "scale": {
+            "x": 1.174934725848564,
+            "y": 1.174934725848564,
+            "width": 450.00000000000006,
+            "height": 126.89295039164492
+          },
+          "imageType": "JPG",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 0,
+      "selected": true,
+      "active": true,
+      "x": 180,
+      "y": 180
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 17,
+          "y": 12,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 79,
+          "text": "<font face=\"Ubuntu\">AngularJS简介</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 26,
+          "y": 181,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 52,
+          "text": "<font face=\"Ubuntu\">AngularJS主要用于构建单页面Web应用。<br>它通过增加开发人员和常见Web应用开发<br>任务之间的抽象级别，使构建交互式的现<br>代Web应用变得更加简单。 \n<br>AngularJS的开发团队将其描述为一种构建<br>动态Web应用的结构化框架。<br></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 1,
+      "selected": false,
+      "active": false,
+      "x": 435,
+      "y": 181
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 57,
+          "y": 45,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 61,
+          "text": "<font face=\"Ubuntu\">AngularJS有哪些功能？</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 150,
+          "y": 202,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<ul><li><span style=\"font-family: Ubuntu; line-height: normal;\">解耦应用逻辑、数据模型和视图</span><br></li><li><span style=\"font-family: Ubuntu; line-height: normal;\">Ajax服务</span></li><li><span style=\"font-family: Ubuntu; line-height: normal;\">依赖注入</span></li><li><span style=\"font-family: Ubuntu; line-height: normal;\">浏览历史</span></li><li><span style=\"font-family: Ubuntu; line-height: normal;\">测试</span></li></ul><span style=\"font-family: Ubuntu;\">……</span><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 1.57,
+      "index": 2,
+      "selected": false,
+      "active": false,
+      "x": 673,
+      "y": 181
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 35,
+          "y": 36,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 49,
+          "text": "<font face=\"Ubuntu\">AngularJS和普通的js框架相比，有啥不同？</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 70,
+          "y": 137,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">以jQuery\n为例，在DOM中插入一个按钮元<br>素，我们必须知道要把元素放到何处：<br></font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 74,
+          "y": 288,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 35,
+          "text": "<font face=\"Ubuntu\">var btn = $(\"&lt;button&gt;Hi&lt;/button&gt;\"); \r<br></font>btn.on('click', function(evt) { console.log(\"Clicked button\"); }); \r<br>$(\"#checkoutHolder\").append(btn);&nbsp;<br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 68,
+          "y": 462,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">它要求开发者对整个DOM结构都有所了解，<br>并强迫在\nJavaScript代码中加入复杂的控制<br>逻辑，以操作外部DOM<br></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 4.71,
+      "index": 3,
+      "selected": false,
+      "active": false,
+      "x": 302,
+      "y": 434
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 19,
+          "y": 209,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 46,
+          "text": "<font face=\"Ubuntu\">AngularJS则通过原生的Model-View-Controller<br>（MVC，模型-视图-控制器）功能增强了HTML。<br><br><div style=\"text-align: center;\">参见第0个实例</div></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 4,
+      "selected": false,
+      "active": false,
+      "x": 675,
+      "y": 519
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 26,
+          "y": 128,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 75,
+          "text": "<font face=\"Ubuntu\">基础篇——数据模型双向绑定</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 109,
+          "y": 348,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 66,
+          "text": "<font face=\"Ubuntu\">先看一个实例：Hello World</font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 1.58,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 5,
+      "selected": false,
+      "active": false,
+      "x": 441,
+      "y": 687
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 33,
+          "y": 58,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">在Rails等传统Web框架中，控制器将多个模型<br>中的数据和模板组合在一起形成视图，并将其\n<br>提供给用户，这个组合过程会产生一个单向视<br>图。<br></font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 38,
+          "y": 378,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">AngularJS创建实时模板来代替视图，而不是<br>将数据合并进模板之后更新DOM。任何一个<br>独立视图组件中的值都是动态替换的。<br>它会记录数据模型所包含的数据在任何特定时<br>间点的值，而不是原始值。<br></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 6,
+      "selected": false,
+      "active": false,
+      "x": 920,
+      "y": 693
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 14,
+          "y": 110,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">自动数据绑定使我们可以将视图理解为模型<br>状态的映射。当客户端的数据模型发生变化时，\n<br>视图就能反映出这些变化，并且不需要写任何<br>自定义的代码，它就可以工作。 \n<br>在MVC的世界里，控制器可以不必担心会牵扯<br>到渲染视图的工作。这样我们就不必再担心如<br>何分离视图和控制器逻辑，并且也可以使测试<br>变得既简单又令人愉悦。<br></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0.06,
+      "rotateZ": -0.84,
+      "index": 7,
+      "selected": false,
+      "active": false,
+      "x": 1139,
+      "y": 527
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 33,
+          "y": 193,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">当AngularJS认为某个值可能发生变化时，它<br>会运行自己的事件循环来检查这个值是否变<br>“脏”。如果该值从上次事件循环运行之后发生<br>了变化，则该值被认为是“脏”值。这也是<br>Angular可以跟踪和响应应用变化的方式。<br></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 1.62,
+      "rotateY": 0,
+      "rotateZ": -1.55,
+      "index": 8,
+      "selected": false,
+      "active": false,
+      "x": 1129,
+      "y": 328
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 375,
+          "y": 67,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 84,
+          "text": "<font face=\"Ubuntu\">控制器</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 276,
+          "y": 260,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 63,
+          "text": "<font face=\"Ubuntu\">先看时钟的实例</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 84,
+          "y": 461,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">在这个例子中，我们会创建一个每秒钟走<br>一步的时钟，并更新clock\n</font>变量上的数据<br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 9,
+      "selected": false,
+      "active": false,
+      "x": 1403,
+      "y": 326
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 43,
+          "y": 87,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">DOM元素上的\nng-controller声明所有被它包<br>含的元素都属于某个控制器<br></font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 35,
+          "y": 262,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 58,
+          "text": "<font face=\"Ubuntu\">&lt;div ng-controller=\"MyController\"&gt;\n<br></font>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h1&gt;Time: {{ clock}}&lt;/h1&gt;\n<br>&lt;/div&gt;<br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 10,
+      "selected": false,
+      "active": false,
+      "x": 1401,
+      "y": 150
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 45,
+          "y": 11,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">$scope是html和单个controller之间的桥梁，<br>数据绑定依靠它完成。$timeout是AngularJS<br>内置定时器。</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 41,
+          "y": 206,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 49,
+          "text": "<font face=\"Ubuntu\">function MyController($scope, $timeout) { \n<br></font>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var updateClock = function() { \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$scope.clock = new Date(); \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$timeout(function() { \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; updateClock(); \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}, 1000); \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }; \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; updateClock(); \n<br>};&nbsp;<br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": -1.58,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 11,
+      "selected": false,
+      "active": false,
+      "x": 1643,
+      "y": 149
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 18,
+          "y": 26,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">优化代码($timeout是AngularJS的内置定时器)</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 42,
+          "y": 135,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">function MyController($scope, $timeout) { \n<br></font>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; var updateClock = function() { \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$scope.clock = new Date(); \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$timeout(function() { \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; updateClock(); \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}, 1000); \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }; \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; updateClock(); \n<br>};&nbsp;<br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 1.52,
+      "rotateY": 0,
+      "rotateZ": 0.84,
+      "index": 12,
+      "selected": false,
+      "active": false,
+      "x": 1877,
+      "y": 310
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 41,
+          "y": 36,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 67,
+          "text": "<font face=\"Ubuntu\">数据绑定的最佳实践</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 30,
+          "y": 228,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">由于JavaScript自身的特点，以及它在传递值<br>和引用时的不同处理方式，通常认为，在视图<br>中通过对象的属性而非对象本身来进行引用绑<br>定，是Angular中的最佳实践。<br></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": -1.56,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 13,
+      "selected": false,
+      "active": false,
+      "x": 1644,
+      "y": 492
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 16,
+          "y": 12,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">优化代码</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 102,
+          "y": 72,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 47,
+          "text": "<font face=\"Ubuntu\">&lt;div ng-controller=\"MyController\"&gt; \n<br></font>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;h1&gt;Hello <font color=\"#f30606\">{{ clock.now }}</font>!&lt;/h1&gt; \n<br>&lt;/div&gt;<br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 103,
+          "y": 263,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 44,
+          "text": "<font face=\"Ubuntu\">function MyController($scope) { \n<br></font>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var updateClock = function() { \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$scope.<font color=\"#f20000\">clock.now</font> = new Date() \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}; \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;setInterval(function() { \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$scope.$apply(updateClock); \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}, 1000); \n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;updateClock(); \n<br>};<br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": -1.59,
+      "index": 14,
+      "selected": false,
+      "active": false,
+      "x": 1885,
+      "y": 683
+    }
+  ],
+  "activeSlide": {
+    "components": [
+      {
+        "TextBox": {},
+        "x": 68,
+        "y": 162,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "size": 70,
+        "text": "<font face=\"Ubuntu\">AngularJS——前端MVC框架</font>",
+        "selected": false
+      },
+      {
+        "src": "http://img2.imgtn.bdimg.com/it/u=1465428309,3869207547&fm=21&gp=0.jpg",
+        "type": "Image",
+        "x": 281,
+        "y": 303,
+        "scale": {
+          "x": 1.174934725848564,
+          "y": 1.174934725848564,
+          "width": 450.00000000000006,
+          "height": 126.89295039164492
+        },
+        "imageType": "JPG",
+        "selected": false
+      }
+    ],
+    "z": 0,
+    "impScale": 3,
+    "rotateX": 0,
+    "rotateY": 0,
+    "rotateZ": 0,
+    "index": 0,
+    "selected": true,
+    "active": true,
+    "x": 180,
+    "y": 180
+  },
+  "fileName": "presentation-1",
+  "overviewX": 1032.5,
+  "overviewY": 421,
+  "deckVersion": "1.0",
+  "customBackgrounds": {
+    "bgs": []
+  }
+}

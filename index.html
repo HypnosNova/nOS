@@ -3,22 +3,25 @@
 
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="module/window/css/drag.css" />
+		<!--<link rel="stylesheet" type="text/css" href="css/foundation.min.css" />-->
+		<link rel="stylesheet" href="module/window/css/drag.css" />
 		<link rel="stylesheet" href="css/styles.css" />
 		<link rel="stylesheet" href="css/demo.css">
 		<link rel="stylesheet" href="css/codemirror.css">
 		<link rel="stylesheet" href="css/default.css">
-		<link rel="stylesheet" type="text/css" href="css/scorllbar.css" />
-		<link href="css/slideme.css" type="text/css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="module/time/css/style.css" />
-		<link rel="stylesheet" type="text/css" href="module/sideMenu/css/style.css" />
+		<link rel="stylesheet" href="css/scorllbar.css" />
+		<link rel="stylesheet" href="css/slideme.css">
+		<link rel="stylesheet" href="module/time/css/style.css" />
+		<link rel="stylesheet" href="module/sideMenu/css/style.css" />
+		<link rel="stylesheet" href="module/neonword/neonword.css" />
+		<link rel="stylesheet" href="css/rotate.css" />
+		<link rel="stylesheet" href="css/btn.css" />
+		<link rel="stylesheet" type="text/css" href="js/tooltip/tooltip.css" />
 		<script src="js/lib/jquery.js"></script>
-		<!--<script src="js/glsl.js"></script>-->
 		<script src="js/lib/slideme.min.js"></script>
-		<script src="js/lib/html2canvas.min.js"></script>
 	</head>
 
-	<body scroll="no" style="background-image: url(img/bg.jpg);background-size: cover;" id="aaaa">
+	<body ng-app="nova" scroll="no" style="background-image: url(img/bg.jpg);background-size: cover;" id="aaaa">
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$(".wrapper-slider").SlideMe();
@@ -30,6 +33,9 @@
 		</div>
 		<div class="meny">
 			<!--最小话窗口图标存放的位置-->
+			<div class="os_title">
+				<p class="blueword2">Polaris</p>
+			</div>
 			<div class="item_content">
 				<ul id="sideBarContainer">
 				</ul>
@@ -50,29 +56,71 @@
 		</div>
 		<div class="meny-arrow"></div>
 		<div class="contents" id="codeContainer">
+			<div style="height: 80%;position: absolute;top: 10%;width: 100%;">
+				<div class="columns small-10">
+					<div class="btnDiv">
+						<div id="hoster" class="starBtn">
+							<div class="border rotate-5-c">
+								<div id="hosteri" class="rotate-5-ac"></div>
+							</div>
+						</div>
+						<div id="hosteriTip" class="tooltipBorder"></div>
+						<div id="hosteriText" translate="hoster" class="tooltipText"></div>
+					</div>
+					<div class="btnDiv">
+						<div id="experience" class="starBtn">
+							<div class="border rotate-5-c">
+								<div id="experiencei" class="rotate-5-ac"></div>
+							</div>
+						</div>
+						<div id="experienceiTip" class="tooltipBorder"></div>
+						<div id="experienceiText" translate="experience" class="tooltipText"></div>
+					</div>
+					<div class="btnDiv">
+						<div id="gallery" class="starBtn">
+							<div class="border rotate-5-c">
+								<div id="galleryi" class="rotate-5-ac"></div>
+							</div>
+						</div>
+						<div id="galleryiTip" class="tooltipBorder"></div>
+						<div id="galleryiText" translate="production" class="tooltipText"></div>
+					</div>
+					<div class="btnDiv">
+						<div id="set" class="starBtn">
+							<div class="border rotate-5-c">
+								<div id="seti" class="rotate-5-ac"></div>
+							</div>
+						</div>
+						<div id="setiTip" class="tooltipBorder"></div>
+						<div id="setiText" translate="option" class="tooltipText"></div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 	<script src="js/appInfo.js"></script>
 	<script src="js/lib/Modernizr.js"></script>
-	<script src="module/explore/js/explore.js"></script>
 	<script src="js/lib/meny.js"></script>
 	<script src="js/touchable.js"></script>
 	<script src="js/later.js"></script>
 	<script src="module/sideMenu/js/dragmove.js"></script>
 	<script src="js/background.js"></script>
 	<script src="module/window/js/drag.js"></script>
-	
 	<script src="module/time/js/moment.min.js"></script>
 	<script src="module/time/js/script.js"></script>
 	<script src="module/magic/js/magic.js"></script>
+	<script src="js/tooltip/tooltip.js"></script>
+	<script src="js/lib/angular.js"></script>
+	<script src="js/lib/angular-translate.js"></script>
+	<script src="js/language/chinese.js"></script>
+	<script src="js/language/english.js"></script>
+	<script src="js/language/language.js"></script>
 	<script>
 		$(function() {
-			//
 			setInterval('setIframeHeight()', 10); //动态调节
 			setInterval('var now=new Date();$(".date").html(now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate())', 1000);
-			
 		});
-		
+
 		function setIframeHeight() {
 			var array = document.getElementsByName("appframe")
 			for (var i = 0; i < array.length; i++) {
@@ -80,17 +128,47 @@
 				$(array[i].parentNode).css("height", (array[i].parentNode.parentNode.offsetHeight - 40) + "px");
 				array[i].height = array[i].parentNode.offsetHeight;
 			}
+			$(".item_content").height($(".item_content").parent().height() - 150);
 		}
-		
 		$(document).ready(function() {
 			$(document.body).setMagic({
 				color: "rainbow",
 				forever: true,
-				speed:0.5,
-				forever:true,
-				count:150
+				speed: 0.5,
+				forever: true,
+				count: 150
 			});
+			setUI();
 		});
+
+		function setUI() {
+			$(".starBtn").height($(".starBtn").width());
+			$(".btnDiv").height($(".starBtn").width());
+			var btna = document.getElementsByClassName("starBtn");
+			for (var i = 0; i < btna.length; i++) {
+				var x = $(btna[i]).offset().left;
+				var width = $(btna[i]).outerWidth();
+				var height = $(btna[i]).outerHeight();
+				$("#" + $(btna[i]).attr("id") + "iTip").css("margin-left", (x + width + "px")).css("margin-top", (height * 0.65 + "px"));
+				$("#" + $(btna[i]).attr("id") + "iText").css("font-size", (height * 0.35 + "px"));
+				var wid2 = $("#" + $(btna[i]).attr("id") + "iText").outerWidth();
+				$("#" + $(btna[i]).attr("id") + "iText").css("margin-left", (x + width + wid2 + "px")).css("margin-top", (height * 0.17 + "px"));
+			}
+		}
+		$(".rotate-5-ac").bind("mouseenter", function() {
+			addTooltip($(this).attr("id"));
+		});
+		$(".rotate-5-ac").bind("mouseout", function() {
+			closeTooltip($(this).attr("id"));
+		});
+		$("#gallery").bind("click",function(){
+			isOpen = true;
+			$(".wrapper-slider").autoDown();
+		});
+		function closeAppDiv(){
+			isOpen = false;
+			$(".wrapper-slider").autoUp();
+		}
 	</script>
 
 </html>

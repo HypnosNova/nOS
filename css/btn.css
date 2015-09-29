@@ -1,0 +1,104 @@
+#star {
+	border: 1px solid transparent;
+	border-radius: 50%;
+}
+.btnDiv {
+	margin-top: 0;
+	margin-bottom:0 ;
+	width: 100%;
+}
+.starBtn {
+	position: absolute;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	text-align: center;
+	color: #aaf;
+	background-size: cover;
+	width: 10%;
+	padding: 1%;
+	border-radius: 50%;
+	float: left;
+	-webkit-transition-duration: 0.5s;
+	-moz-transition-duration: 0.5s;
+	-o-transition-duration: 0.5s;
+}
+.starBtn:hover {
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-o-transform: scale(1.2);
+}
+.border {
+	margin-left: 10%;
+	margin-top: 1%;
+	width: 80%;
+	height: 80%;
+	border-radius: 50%;
+	background-image: url(../img/btn/border.png);
+	background-size: cover;
+	padding: 0;
+}
+#hoster {
+	/*margin-top: 0;*/
+	
+	margin-left: 20%;
+	border-radius: 50%;
+}
+#hosteri {float: left;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-image: url(../img/btn/me.png);
+	background-size: cover;
+}
+#experience {
+	/*margin-top: 11%;*/
+	
+	margin-left: 25%;
+	border-radius: 50%;
+}
+#experiencei {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-image: url(../img/btn/exp.png);
+	background-size: cover;
+}
+#cv {
+	/*margin-top: 22%;*/
+	
+	margin-left: 20%;
+	border-radius: 50%;
+}
+#cvi {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-image: url(../img/btn/cv.png);
+	background-size: cover;
+}
+#gallery {
+	/*margin-top: 33%;*/
+	
+	margin-left: 15%;
+	border-radius: 50%;
+}
+#galleryi {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-image: url(../img/btn/gallery.png);
+	background-size: cover;
+}
+#set {
+	/*margin-top: 44%;*/
+	
+	margin-left: 20%;
+	border-radius: 50%;
+}
+#seti {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-image: url(../img/btn/set.png);
+	background-size: cover;
+}

@@ -101,20 +101,17 @@ function drag(oDrag, handle) {
 				//add2();
 		}
 		oClose.onclick = function() {
-				html2canvas(oDrag).then(function(canvas) {
-					var strDataURI = canvas.toDataURL();
-					var div = document.createElement("div")
-					var img = document.createElement("img")
-					img.src = strDataURI;
-					div.appendChild(img);
-					div.style.position = "absolute";
-					div.style.zIndex = 2;
-					div.style.left = oDrag.style.left;
-					div.style.top = oDrag.style.top;
-					document.body.appendChild(div);
+				//var strDataURI = canvas.toDataURL();
+//					var div = document.createElement("div")
+//					var img = document.createElement("img")
+//					img.src = strDataURI;
+//					div.appendChild(img);
+//					div.style.position = "absolute";
+//					div.style.zIndex = 2;
+//					div.style.left = oDrag.style.left;
+//					div.style.top = oDrag.style.top;
+//					document.body.appendChild(div);
 					$(oDrag).remove();
-					explore(div, strDataURI);
-				});
 
 			}
 			//阻止冒泡
@@ -193,6 +190,9 @@ function zIndexChange(oDrag) {
 }
 
 function createWindows(app) {
+	if(app.unable){
+		return;
+	}
 	var oDrag = document.createElement("div");
 	document.body.appendChild(oDrag);
 	windowsArray.push(oDrag);

@@ -6,10 +6,9 @@
 	left: 100px;
 	width: 300px;
 	height: 160px;
-	background: #666;
-	border: 1px solid #444;
+	background: rgba(20,0,64,0.5);
 	border-radius: 10px;
-	box-shadow: 0 1px 3px 2px #666;
+	box-shadow: 0 1px 1px 1px #666;
 	-moz-user-select: none;
 	-o-user-select: none;
 	-khtml-user-select: none;
@@ -21,7 +20,7 @@
 	position: relative;
 	height: 27px;
 	margin: 5px;
-	
+	color:#bbf;
 }
 #drag .title h2 {
 	font-size: 14px;

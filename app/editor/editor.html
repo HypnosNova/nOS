@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="codemirror/codemirror.css">
+		<link rel="stylesheet" type="text/css" href="css/checkstyle.css" />
+		<link rel="stylesheet" type="text/css" href="codemirror/blackboard.css" />
+		<link rel="stylesheet" href="codemirror/addon/hint/show-hint.css">
+		<link rel="stylesheet" href="codemirror/addon/tern/tern.css">
+		<link rel="stylesheet" href="codemirror/addon/dialog/dialog.css">
+		<link rel="stylesheet" type="text/css" href="css/editor.css" />
+		<style type="text/css">
+			. {
+				padding: 0;
+			}
+			.divbtn {
+				font-family: '微软雅黑';
+				font-size: 18px;
+				border: 3px solid #000;
+				border-color: #222;
+				border-radius: 4px;
+				width: 100px;
+			}
+			div .divbtn:hover {
+				background-color: #00FF00;
+			}
+			/* 公用 */
+			.hide-menu {
+				width: 0;
+				border: 1px solid #333333;
+				text-align: center;
+				font-size: 13px;
+				left: 0;
+				top: 100px;
+				float: left;
+				display: none;
+			}
+			.ctrl-btn {
+				text-align: center;
+				vertical-align: middle;
+				border: 1px solid;
+				float: left;
+				position: relative;
+				top: 0px;
+				cursor: pointer;
+			}
+			/* 菜单2 */
+			#menu-2 {
+				top: 0px;
+				right: 0;
+				float: right;
+				display: block;
+				border: 0px;
+				-moz-border-radius: 0px 0px 0px 10px;
+				-webkit-border-radius: 0px 0px 0px 10px;
+			}
+			#ctrl-btn-2 {
+				color: #fff;
+				float: right;
+				width: 25px;
+				height: 80px;
+				border: 0px;
+				background: -moz-linear-gradient(left, rgba(0, 0, 255, 0.93), rgba(255, 255, 0, 0.93));
+				background: -webkit-linear-gradient(left, #339, #77F);
+				-moz-border-radius: 10px 0px 0px 10px;
+				-webkit-border-radius: 10px 0px 0px 10px;
+			}
+			.clr {
+				clear: both;
+			}
+			/* 菜单3 */
+			#menu-3 {
+				width: 400px;
+				height: 0px;
+				border: 0px;
+				-moz-border-radius: 0px 0px 0px 10px;
+				-webkit-border-radius: 0px 0px 0px 10px;
+				background: rgba(220, 220, 220, 0.93)
+			}
+			#menu-3-wrapper {
+				width: 0px;
+				top: 0;
+				left: 0px;
+				position: absolute;
+			}
+			#ctrl-btn-3 {
+				color: #fff;
+				border: 0px;
+				clear: both;
+				left: 300px;
+				width: 100px;
+				height: 25px;
+				vertical-align: middle;
+				position: relative;
+				top: 0;
+				background: -moz-linear-gradient(top, rgba(0, 0, 255, 0.93), rgba(255, 0, 255, 0.93));
+				background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(0, 0, 255, 0.93)), to(rgba(255, 255, 0, 0.93)));
+				-moz-border-radius: 0px 0px 10px 10px;
+				-webkit-border-radius: 0px 0px 10px 10px;
+			}
+			.toolbar {
+				height: 34px;
+				background-color: #CCC;
+				position: absolute;
+			}
+			#popup {
+				position: absolute;
+				color: rgb(235, 235, 235);
+				padding: 20px 20px 20px 20px;
+				background-color: rgb(80, 80, 80);
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div style="position: absolute;width: 100%;height: 100%;top:0px;">
+			<div id="editor"></div>
+			<div id="toolbar">
+			</div>
+			<div id="popup" style="display: none;">
+
+				<svg width="32" height="32" style="position: absolute; top: 5px; right: 5px; cursor: pointer;" onclick="$('#popup').css('display','none')">
+					<path d="M 9,12 L 11,10 L 15,14 L 19,10 L 21,12 L 17,16 L 21,20 L 19,22 L 15,18 L 11,22 L 9,20 L 13,16" fill="rgb(235,235,235)"></path>
+				</svg>
+				<div>
+					<div style="width: 400px; padding: 5px; border: 0px; text-align: left;">
+						<h1 style="text-align: center;width: 100%;">Nova在线IDE（Following MIT license）</h1>
+						<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本编辑器支持：代码高亮、自动缩进、实时查看、全屏查看、代码下载、变量重命名……
+						<br>
+						<br>快捷键说明：
+						<div style="margin-left: 10px;margin-top:5px;">
+							<table style="width: 100%;border-width: 3px;font-family: '微软雅黑';font-size: 14px;">
+								<tr>
+									<th style="width: 50%;">Ctrl + C：复制</th>
+									<th style="width: 50%;">Ctrl + V：黏贴</th>
+								</tr>
+								<tr>
+									<th style="width: 50%;">Ctrl + Z：撤销</th>
+									<th style="width: 50%;">Ctrl + Y：取消撤销</th>
+								</tr>
+								<tr>
+									<th style="width: 50%;">Ctrl + D：删除行</th>
+									<th style="width: 50%;">Ctrl + Enter：运行</th>
+								</tr>
+								<tr>
+									<th style="width: 50%;">Ctrl + Q：变量重命名</th>
+									<th style="width: 50%;">Ctrl + I：显示类型</th>
+								</tr>
+								<tr>
+									<th style="width: 50%;">Ctrl + A：全选</th>
+									<th style="width: 50%;">Ctrl + F：搜索</th>
+								</tr>
+								<tr>
+									<th style="width: 50%;">Ctrl + G：下一个</th>
+									<th style="width: 50%;">Ctrl + Shift + F：上一个</th>
+								</tr>
+								<tr>
+									<th style="width: 50%;">Ctrl + Shift + F：替换</th>
+									<th style="width: 50%;">Ctrl + Shift + R：全部替换</th>
+								</tr>
+								<tr>
+									<th style="width: 50%;">Alt + A：变量出现位置</th>
+									<th style="width: 50%;">Alt + D：转到定义</th>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="menu-2" class="hide-menu" style="overflow: hidden;">
+				<div class="toolbar">
+					<div style="float: left;margin-left:5px;margin-top:4px;">
+						<input type="checkbox" id="ck" style="left: 0px;" />
+						<label for="ck" class="check-box" style="left: 0px;"></label>
+					</div>
+					<div style="margin-left:3px;font-family: '微软雅黑';font-size: 25px;font-weight: bold;color:#343434;float:left;">Auto</div>
+					<div style="float: left;">
+						<img id="renew" width="25px" height="25px" src="teach/img/renew.png" style="margin-left: 5px;margin-top:4px;" />
+					</div>
+					<div style="float: left;margin-left: 3px;">
+						<select onchange="demoChange();" id="demoSelect" style="font-family: '微软雅黑';font-size: 16px;margin-top: 3px;">
+						</select>
+					</div>
+					<div style="float: left;">
+						<img id="resetCode" width="25px" height="25px" src="teach/img/reset.png" style="margin-left: 5px;margin-top:4px;cursor: pointer;" />
+						<a id="dCode">
+							<img width="25px" height="25px" src="teach/img/download.png" style="margin-left: 3px;" />
+						</a>
+						<img id="fullscreem" width="25px" height="25px" src="teach/img/fullscreem.png" style="margin-left: 3px;cursor: pointer;" />
+						<img id="pop" width="25px" height="25px" src="teach/img/help.png" style="margin-left: 3px;cursor: pointer;" />
+					</div>
+				</div>
+				<div style="position: absolute;top:34px" id="pdiv">
+					<div id="preview" style="position: absolute;width: 100%;height: 100%;"></div>
+				</div>
+			</div>
+			<div id="ctrl-btn-2" class="ctrl-btn">
+				<br/>收拢</div>
+		</div>
+		<script src="codemirror/codemirror.js"></script>
+		<script src="codemirror/addon/edit/closetag.js"></script>
+		<script src="codemirror/addon/fold/xml-fold.js"></script>
+		<script src="codemirror/addon/edit/closebrackets.js"></script>
+		<script src="codemirror/addon/hint/show-hint.js"></script>
+		<script src="codemirror/addon/hint/anyword-hint.js"></script>
+		<script src="codemirror/addon/hint/javascript-hint.js"></script>
+		<script src="codemirror/addon/hint/html-hint.js"></script>
+		<script src="codemirror/addon/hint/css-hint.js"></script>
+		<script src="codemirror/addon/tern/tern.js"></script>
+		<script src="codemirror/addon/selection/active-line.js"></script>
+		<script src="codemirror/addon/dialog/dialog.js"></script>
+		<script src="codemirror/addon/search/searchcursor.js"></script>
+		<script src="codemirror/addon/search/search.js"></script>
+
+		<script src="codemirror/mode/xml.js"></script>
+		<script src="codemirror/mode/javascript.js"></script>
+		<script src="codemirror/mode/css.js"></script>
+		<script src="codemirror/mode/htmlmixed.js"></script>
+		<script src="js/rawinflate.js"></script>
+		<script src="js/rawdeflate.js"></script>
+		<script src="js/esprima.js"></script>
+
+		<script src="http://marijnhaverbeke.nl/acorn/acorn.js"></script>
+		<script src="http://marijnhaverbeke.nl/acorn/acorn_loose.js"></script>
+		<script src="http://marijnhaverbeke.nl/acorn/util/walk.js"></script>
+		<script src="http://ternjs.net/doc/demo/polyfill.js"></script>
+		<script src="http://ternjs.net/lib/signal.js"></script>
+		<script src="http://ternjs.net/lib/tern.js"></script>
+		<script src="http://ternjs.net/lib/def.js"></script>
+		<script src="http://ternjs.net/lib/comment.js"></script>
+		<script src="http://ternjs.net/lib/infer.js"></script>
+		<script src="http://ternjs.net/plugin/doc_comment.js"></script>
+		<script src="../../js/lib/jquery.js"></script>
+		<script src="js/screenfull.min.js"></script>
+		<script>
+			var x = window.screen.width;
+			var y = window.screen.height;
+			$(document).ready(function() {
+				//eg.2
+				$('#menu-2').menuToggle({
+					'ctrlBtn': 'ctrl-btn-2',
+					'speed': 500,
+					'width': x / 3,
+					'openText': '<br/>展开',
+					'closeText': '<br/>收拢',
+				});
+				//eg.3
+				$('#menu-3').menuToggle({
+					'ctrlBtn': 'ctrl-btn-3',
+					'speed': 400,
+					'height': 200,
+					'openText': '展开',
+					'closeText': '收拢',
+					'type': 'height',
+				});
+			});
+			(function($) {
+				$.fn.extend({
+					'menuToggle': function(options) {
+						//self变量，用于函数内部调用插件参数
+						var self = this;
+						//默认参数
+						this._default = {
+							'ctrlBtn': null, //关闭&展开按钮id
+							'speed': 400, //展开速度
+							'width': 400, //展开菜单宽度
+							'height': 400, //展开菜单高度
+							'openText': '展开', //展开前文本
+							'closeText': '收拢', //展开后文本
+							'type': 'width' //width表示按宽度伸展，height表示按高度伸展
+						};
+						//插件初始化函数
+						this.init = function(options) {
+							//存储自定义参数
+							self._default.ctrlBtn = options.ctrlBtn;
+							if (typeof options.type != 'undefined') self._default.type = options.type;
+							if (typeof options.width != 'undefined') self._default.width = options.width;
+							if (typeof options.height != 'undefined') self._default.height = options.height;
+							if (typeof options.speed != 'undefined') self._default.speed = options.speed;
+							if (typeof options.openText != 'undefined') self._default.openText = options.openText;
+							if (typeof options.closeText != 'undefined') self._default.closeText = options.closeText;
+							if (self._default.type == 'width') {
+								self._default.expandOpen = {
+									width: self._default.width
+								};
+								self._default.expandClose = {
+									width: 0
+								};
+							} else {
+								self._default.expandOpen = {
+									height: self._default.height
+								};
+								self._default.expandClose = {
+									height: 0
+								};
+							}
+						};
+						this.run = function() {
+							$("#" + self._default.ctrlBtn).click(function() {
+								if ($(this).hasClass('closed')) { //有closed类，表示已关闭，现在展开
+									$(this).removeClass('closed').html(self._default.closeText);
+									$(self).show().animate(self._default.expandOpen, self._default.speed);
+								} else {
+									$(this).addClass('closed').html(self._default.openText);
+									$(self).animate(self._default.expandClose, self._default.speed, function() {
+										$(this).hide();
+									});
+								}
+							});
+						};
+						//Init
+						this.init(options);
+						this.run();
+					}
+				});
+			})(jQuery);
+		</script>
+		<script>
+			$("#menu-2").css("width", x / 3 + "px");
+			$("#menu-2").css("height", y / 1.5 + "px");
+			$("#pdiv").css("width", x / 3 + "px");
+			$(".toolbar").css("width", x / 3 + "px");
+			$("#pdiv").css("height", y / 3 + "px");
+			$("#menuDiv").css("top", y / 3 + "px");
+			var sampleCode = [
+				"0-0：空的模板", "s1F08XcOiQxwVcgoyc2x47KBUJw2GamJKUCa06a4pDInFcTiBPH0YVwbfYgKICspP6USpAAkCGXbFCcXZRaUKJRUFqTaKpWkVpToZyWWJUJElRSKi5JtlfT09IEoq1g/JzNJP6uwNLWoUi+rWMkOaAdYGTnGJOall+YkFpFmDtRzCPVAv4FCAQA=",
+				"jQuery：选择器","lVA9T8QwDJ17v8IXMTTSKVFncl2A4SYYWBhziU9JSZuSpECE+O+kH4iBASFZ9rP9bPlZ7G/vbx6fHu7ApN61O7GGShiUusRKxJQdzqiaM/6dCr4yCjp7nReqadrTBbKfQDmrnsEP0OMBTvBmnQNtoxxHlIGV2WZZsU2KqIIdE6Q84pEkfE+8k69yrRKIQR0JY7xYF7mzZ969TBgy6yJpy0UL7c81m4R/8a9q7dXU45AoC0Vuri/ToJL1Q00/dgDVTCGmIZQtin+3Sz8ZGykzVmNNr9fqZwGb/7mnfGX+/Rc=",
+				"jQuery：修改CSS","lZFNT8QgEIbP3V+BxEObKCTbo2wvu571sBePlGKh20IXqLEx/neH0o1GTYwJYT7eh8nMwK4OD/vj0+M9UmHoqw1LJmNK8gZsxnyYexm9LEb0EjKaCPBq28wLqrbVUWmP4HAUZW1a4LZJLL+II3e8dXxUBPTyh25sUNL9RtVTCNagMI9yh1OAq32vxQkNktGUWdpbu2JeOD2G9UWQr4F2/IWnLEbeiR0mhMLpPO11TbvzJN1MOo8rmHbB/iyzrudf/HXeWDEN0oSCONjVnD9PRgRtTV68bRDKInIZsSAizvgNiUyEVBkB7wHn4tQ6O5nmVtjeOnyDnWxwcZcKvoOz3p+9wm7jn38A",
+				"jQuery：淡入淡出","pZM9T8MwEIbn9FcYw9AMxGm6oOZjAQamMrAwJrbbOHXt4NhtI8R/x076gVIBqioluXPeR69P53Ny8zR/fHt/fQalXvNslPTBS0qaExu9pNEtpy7z3AodlgnqCZsVkrQdWhitpQCMgBTAYgKzRU4oYCJBvZINiGhPSKOPSOejMve6lLCNpVNo4wSCbvMUbhnR5ewhrHdxSdmy1H1OWFPzvJ0JKWhc5Hi1VNIIco8ll2qmKIlhliDr5JwH5tF15ktFqfjDfnqdfcEN/eFum9W3PGmwYrUGuq2ttaY7jap8k/d/7ZYKpzAIkH2qBnFWoOrDUNUGVePMeuxfm/3ZX8TfjYnEZk2F9gNl56QdL4zAmkkx9j9HAHgOgbd2RvwAc4ZXA/1IdOfuB25MXqwWD7TopMGGyy08I6YnYhqGYadb9csmhyKiC4qYG/17FU78pwyHnNfRfU8NtnfL3cJv",
+				"jQuery：简单动画","lVHBToQwED3DV2A1ARJDYZNNFLpc1LMevHgspSxlWYp0WJcY/90WymZvxqbJzLx5nem8ITfPr0/vH28vXg3HNnfJYhxSc1pq6xAFU8uN55gIryHBC0N7hSynmVqMALLLFdABCLaRSZTi5M0Pd6ig7LAf5NiV6e3jQ1FtkqzmYl9DmsRxf86+RAm19XupBAjZpbRQsh2BZ2guh3W9+Qu2M1FsED14MPW6A/Az4Iae6IIiTw1sh6II69so3IoCN58jH6aoUSjXE820P8tYCf7FvwvQogIKI9YKdgiqsWNmpCD8dj19Zo4eRxNoJ44UeLAkdMZpeQWpv9lqLfz7Cyp7ygRMqR9H2xU2uJXRT675JrFIanHb9SfM3NVezaS3avb/Cw==",
+				"jQuery：动画队列","nVLLTsMwEDy7XxEMUhKpiluEREncXoAzHLj06Dhu4zSNQ7xpG1X9dzaPSoiHKrAs7a49s+MdmV89vTy+LV+fnRS2+WLE+0B4qkSCkXALTa7ajLQVO5ec9QjMYpM0HTSuAUyxsCAq4Gyo2otE75yOOKexkJt1ZeoiCa8fZvHqdhqlSq9TCKeTSXmI9jqBdMhLYzVoU4QitiavQUW0a8ewX/eEQZlbWekSHGhKVAB1AJaJnehPqWMrOadBwHBnluU6Ztl7raomyCxd4EQd7GKbwYI/4W882rtA/UDmWm68VV3IdiTPP44cXITsROXgPHPEYqB+NJxjEYhCbwUo7zhY5N63vrhjUwqpoQndSXDnnsbU5mb/C7P38wfi7ALxLDn9r+R34hdJQk4YPzmKf6r9fR8=",
+				"jQuery：设置值","lZLfT4MwEMef2V/RdSaDB2Gyt9nx4jQzcdHEvfgIpXNltZ20TInxf/dKcZJl/mpI7q58+N5xd6Q/u71YPtxdorV5EkmPOOORNUtzsB7RphbMep6Nos+QRI4AL1N53aDrGPF8ig3T5gwnV7zUBgkuGbDxIRDj5J5RJfNDIrmW28qgFWcinyDCm8jUW2a/ezV4rzDGaJeKCu4XnG5YjRaq0gwne62sMkbJhs+MhIo0AyXQIJF7dYSKHTVfLm5+oMaOatJ3MHBdK4imJd92y46KdJe6W4x0Sac4DCN4Ch0JnkXFc8XKOiy0Ld9hv8q0M/kXf+LjQdOLIKQCuuavKkkNV9IP3noIjkPcBIPQSvh4zoRQ6EWVIu/j4LxnqffWtoLxUUHvS80CdrV8TDLU7NB0mKV081iqSuanVAlVTgYrOKPRMOlmhKYm32Qd/+E3LANz8vGMa8nqrlKndbAzdu8/AA==",
+				"jQuery：设置标签属性","lVFLT4QwED6Df6KOHiAxbTZ7WwsX9axGE7PHUrq22AWEQSTG/25b2ARPxqbJvL55fDP8/Pb+5nn/cEc0Hm0e81lEXCtROhnxHiervBZ5i51MzmaE04qmnAJUb3IuiO7UIQON2O4YG8eRFsKUA5XNEYgpMxi3PeS//JyJ3NXbhCLFgNjUudSiflWhGBF1SdCgVZwtUd9/act72ZkWCU6tygDVJ7JKfIjZC6TvZAaUMvernllTsOp9UN1EKzeFoxNgf5ZZ+P8Lf5nAPC2kVFoj35LDUEs0TZ2kXzFxL2Au/D5SKhC7ZHb7QASeOZAdWW/SQaVuGuuXRmW9UGFwtcoLiwqJL9ungCbVo4eR/Rksbb/T6/gkV6TcDfz1fwA=",
+				"CSS：边框与阴影","ZZJNb4MwDIbP7Fdk5Yz42JDaNOOyrdftwGXHgFMSjZEqpCtVtf++fACjXZAcx85jO68g9y9vz+XH+yvi+qst7ojfAsIZBbMHpNfnllkvCEF8pxfrBZoNOqKtaDpcs04ztXXhSipgCmeHAfWyFYBCmtrPZw8UQHQNThOTfzRmizxF689GyWMHOAS3/P2TAM3xQ25vLspHioI49jjNx/iPNdOA2WXJJjPLmWi4xuu/YnPXqJatVDjc7zebJJlaDVHPKcgTRm5eZ0xHFK7duu7Ml7pMXD4SjtrtkmQsbikST7qS2EttvErC2Wlu3oEEPK2s4Kui5KJHNsRpj/zjkZeCxCbsiErFt2R2Q/qx/iM8LUoz9pw3ZzuVH8Yc7Q/xCw==",
+				"CSS：倾斜翻转","jZPBToNAEIbP+BRrvdRGAqWn4tpLxeipRk2Mx213CpsCS4ZVqI1v4EO7C6VNKqAXdvLP/DPJlx96fruYv7w9BiRSSTw7o/Vj0QgY169Fc7WNwVTWBRcf452prIRhKFJ/4mbldSUUgqvI99yDEIEII+WPj8qSrTYhyveU2ysZS/S3EMeyqJvOiDxJxRQQfYSMnEpUyNJ8LTHxseoNpxzCy9pgJ7nd0Sd62UOqAFNQJCgzfQuw2Wkn8rPPeCcQ1rI8jBew3AjV53hma4aCfJN5hDKBg1P2mRYZINuPfplPA9jbtcNC4P8mfbybb6AYTlx99spzu+D9HqoIBmTaAa3d8Ce5dtseH0t5H8B27ylF6jRppU4dYF0tJd9WSTbJEvxmYGI8mN2b9JFXiTGnjpZOR7zWEerU6/R+86P8AA==",
+				"CSS：动画","hZJBT8JAEIXP5VeMNyVAC/FgasMFNTExwUQvHpfutLuh3SHbkYLG/+6WJVBF7Gkmk/e+ZN++5OJuPnt9e74HxWUx7SV+BIlCId0Mkoq3BU7BrYHU689mBrWWrOJxFK02t7uDQp0rbl8WIl3mlt6NjLdYFFT7M1thKs2aTLyDwKQagHe71WuGJX0M/xcO4CjKyJaNF8I+PGiLGW3gGvqhZ9W4WGruxrV1beKLyITVIIyEmbJU4oFM3VA65c1XaMWe8dXbpxorWqNtZzs5ybZ1OUBjSywYL8c3kcT86nd8f0m6Uzrn6kzinPHnk12lQt8p17JwXzO3Lkhud4VzeUyfiJYgGFjpCtxhBI8MqTCQKmFyBM0VFhnU2oUujC5F8wmjJGy8DdbDHL5p8zc=",
+				"CSS：keyframes","xZOxboMwEIZneIrrwBIpglZioRaqlLZrKrVLR1Mf2ALjyDglNMq7F9tBKimZs9zZ9/2Wft/pyN3zdvPx+fYC3MgmD4lPAeFImc2dGRrMIQwCJr6PYwp6wQzP7pNkd3i0d46i4uZPoaBfdaXVvmWZRuZKtBWSGqHaTA6l0J2BtHNgLdXPepFCvIJXobFUB1jFTttjUQtzXf5OS6oF0JbBhmslcXqorr/Z7lBTrzuFY3iqcSg1ldjBWek+nUQAcLz42cmShzSakwGbRvUepskFLJo9ejT2K5qhSiO2jnkjrjX/3MzbcjNv51Es2lsaw82MqmWP09hv4Ssgsd8qe5r2rFBsyK1lMu5ZTmIbQyvwYBTaxfwF",
+				"CSS：视距","jZE9T8MwEIbn5FeYsMAQhVZ0KW4WqMRQqQwMMNq5a3KqE0eO+yXEf8eOm35ICDH59XPn+/DLb16Wz++fb3NW2VrlMQ9HHPEKBeRxFPHOHhR6Fd0CbUfsy8uo1R1Z0s2UGVTC0hafel4hlZWdstHkod0HtCOw1RWphSnJPT2TVgBQU7qsE5LaABpH2j3rtCJgUolifcxH07VY+L595UDTHco12fTX6PewwnhYYeh5McZpKyFdz43Ff8winSqN3jSQFlpp478EQsga0XQrbWrHtBUWP+4eJ4Dl/fW8f6f5wXk22MCz4IxTUsOht8gtxQhmifcn6a26ROMkf50vFkueuUuffxQ8CxVcSe/6Dw==",
+				"CSS：高级实例","7VpNb5swGD7TX+EhVWqn8hGSpikjvezjuh26w44mOODVwcg4bdNp/322wcBC2hCNyyRLiTD2+zx+/L6P7UMSvfv09eP9j2+fQcY35O4sqh5nVpQhmNydWVa0QRyCVQZZifjS/n7/xVnYaqDkO4Jky3oPfsmHtYEsxXkI/A/qtYBJgvO0eadbTnCOQpDTHFVdMWUJYn/3PDslflG4atQRXWrst5orjNGaMnRVvcA1R6ye3nlC8QPmzjEK94nBYk9y4BfPYOKft1EyE2qSmCY7HY1zJ0M4zXgogrvRnaAYrh5SRrd54uANTMV6GUwwJE4qnyjnF0QyiLcd8M+vgGpItsuWbktqMoJL7qhMd5PUJBrALadVX4LLgsBdCDiMCWqpCK6pmgCcyzI4MaGrhz0+kQTxbcF4k+pV1ZUqKcGJkCsiYwI1AWcwLzHHVJBAQoA7LQGCZUeGSx8RE9ODRk9BNYIhAjl+PBDttMQ16gknPAvBNJjUOi1dkCDQ0jvUMBaCt7zOG6dF48bVlpVULKigOBceenvuph6nihbAfgFUUTFHm0rJmlAo9BO05nvlOMAtYfup6GdC97ReFILTGF74V6D6uDeXr5RuVpXOEV4XO/bN5YWZ7KsXmeDH3g4QbpTBBWTC9x2qBEmiyd7GbYkdFRAC15+VPVgwALbow6bHYZOgD5sNgM37sOvjsMDvw+YDYAdScjMAdiAli+Ow6YGU3A6AHUjJxD+Om3VyEnn1FSOuI6+6j0RLnrSyYUXScCsCy3JpyxNd3UpWJMxYd9Z+rfqtiOCqYUXyVCvZaml73gukBLk54l7g/ixSG6hNtbTF+WKDaj8tbXGy2Jq01Wxruo6O/hbRUVKYbna0vIJXu7zOmn0XeSKkBXsd9ClMwWhM09GYZqMxXY/GNB+N6WY0psVoTLejMU38w1TG5cblxuXG5cblxuX/psq4fBiTcfkwJuNy43LjcuNy43LjcuPy05mMy4cxGZcblxuXG5cblxuXG5efzmRcPozpf3K5bjc/g3aCmgg9rMcir/65N/LUP5P+AA=="
+				
+			]
+			var mySelect = document.getElementById("demoSelect");
+			$(function() {
+				for (var i = 0; i < sampleCode.length; i += 2) {
+					var opp = new Option(sampleCode[i], sampleCode[i + 1]);
+					//将option添加到select标签里面
+					mySelect.add(opp);
+				}
+			})
+
+			function demoChange() {
+				if (confirm('确认要放弃当前编辑?') === true) {
+					defaultCode = decode($('#demoSelect option:selected').val());
+					editor.setValue(defaultCode);
+					save();
+				}
+			}
+
+			window.URL = window.URL || window.webkitURL;
+			 // deflate
+			var decode = function(string) {
+				return RawDeflate.inflate(window.atob(string));
+			};
+			var encode = function(string) {
+				return window.btoa(RawDeflate.deflate(string));
+			};
+
+			var defaultCode = decode('s1F08XcOiQxwVcgoyc2x47KBUJw2GamJKUCa06a4pDInFcTiBPH0YVwbfYgKICspP6USpAAkCGXbFCcXZRaUKJRUFqTaKpWkVpToZyWWJUJElRSKi5JtlfT09IEoq1g/JzNJP6uwNLWoUi+rWMkOaAdYGTnGJOall+YkFpFmDtRzCPVAv4FCAQA=');
+
+			var documents = [{
+				filename: 'Untitled',
+				filetype: 'text/plain',
+				autoupdate: true,
+				code: defaultCode
+			}];
+
+			if (window.location.hash) {
+				var hash = window.location.hash.substr(1);
+				var version = hash.substr(0, 2);
+				if (version == 'A/') {
+					alert('That shared link format is no longer supported.');
+				} else if (version == 'B/') {
+					documents[0].code = decode(hash.substr(2));
+				}
+			}
+			 // preview
+			var preview = document.getElementById('preview');
+			 // editor
+			var interval;
+			var editor = CodeMirror(document.getElementById('editor'), {
+				value: documents[0].code,
+				mode: 'text/html',
+				lineNumbers: true,
+				styleActiveLine: true,
+				lineWrapping: true,
+				matchBrackets: true,
+				indentWithTabs: true,
+				tabSize: 4,
+				indentUnit: 4,
+				theme: "blackboard",
+				autoCloseTags: true,
+				autoCloseBrackets: true,
+			});
+
+			function getURL(url, c) {
+				var xhr = new XMLHttpRequest();
+				xhr.open("get", url, true);
+				xhr.send();
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState != 4) return;
+					if (xhr.status < 400) return c(null, xhr.responseText);
+					var e = new Error(xhr.responseText || "No response");
+					e.status = xhr.status;
+					c(e);
+				};
+			}
+			var server;
+			getURL("http://ternjs.net/defs/ecma5.json", function(err, code) {
+				if (err) throw new Error("Request for ecma5.json: " + err);
+				server = new CodeMirror.TernServer({
+					defs: [JSON.parse(code)]
+				});
+				editor.setOption("extraKeys", {
+					"A": "autocomplete",
+					"B": "autocomplete",
+					"C": "autocomplete",
+					"D": "autocomplete",
+					"E": "autocomplete",
+					"F": "autocomplete",
+					"G": "autocomplete",
+
+					"H": "autocomplete",
+					"I": "autocomplete",
+					"J": "autocomplete",
+					"K": "autocomplete",
+					"L": "autocomplete",
+					"M": "autocomplete",
+					"N": "autocomplete",
+
+					"O": "autocomplete",
+					"P": "autocomplete",
+					"Q": "autocomplete",
+					"R": "autocomplete",
+					"S": "autocomplete",
+					"T": "autocomplete",
+					"U": "autocomplete",
+
+					"V": "autocomplete",
+					"W": "autocomplete",
+					"X": "autocomplete",
+					"Y": "autocomplete",
+					"Z": "autocomplete",
+
+					"Shift-A": "autocomplete",
+					"Shift-B": "autocomplete",
+					"Shift-C": "autocomplete",
+					"Shift-D": "autocomplete",
+					"Shift-E": "autocomplete",
+					"Shift-F": "autocomplete",
+					"Shift-G": "autocomplete",
+
+					"Shift-H": "autocomplete",
+					"Shift-I": "autocomplete",
+					"Shift-J": "autocomplete",
+					"Shift-K": "autocomplete",
+					"Shift-L": "autocomplete",
+					"Shift-M": "autocomplete",
+					"Shift-N": "autocomplete",
+
+					"Shift-O": "autocomplete",
+					"Shift-P": "autocomplete",
+					"Shift-Q": "autocomplete",
+					"Shift-R": "autocomplete",
+					"Shift-S": "autocomplete",
+					"Shift-T": "autocomplete",
+					"Shift-U": "autocomplete",
+
+					"Shift-V": "autocomplete",
+					"Shift-W": "autocomplete",
+					"Shift-X": "autocomplete",
+					"Shift-Y": "autocomplete",
+					"Shift-Z": "autocomplete",
+					"Ctrl-I": function(cm) {
+						server.showType(cm);
+					},
+					"Alt-D": function(cm) {
+						server.jumpToDef(cm);
+					},
+					"Alt-,": function(cm) {
+						server.jumpBack(cm);
+					},
+					"Ctrl-Q": function(cm) {
+						server.rename(cm);
+					},
+					"Ctrl-.": function(cm) {
+						server.selectName(cm);
+					}
+				})
+				editor.on("cursorActivity", function(cm) {
+					server.updateArgHints(cm);
+				});
+			});
+
+			editor.on('change', function() {
+				buttonSave.style.display = '';
+				if (documents[0].autoupdate === false) return;
+				clearTimeout(interval);
+				interval = setTimeout(update, 500);
+			});
+			var element = editor.getWrapperElement();
+			 // toolbar
+
+			var buttonUpdate = document.getElementById('renew');
+			var checkbox = document.getElementById("ck");
+			if (documents[0].autoupdate === true) checkbox.checked = true;
+			checkbox.addEventListener('click', function(event) {
+				event.stopPropagation();
+				documents[0].autoupdate = documents[0].autoupdate === false;
+				localStorage.codeeditor = JSON.stringify(documents);
+			}, false);
+			buttonUpdate.addEventListener('click', function(event) {
+				update();
+			}, false);
+			var buttonSave = document.getElementById("dCode");
+			buttonSave.addEventListener('click', function(event) {
+				save();
+				buttonSave.download = 'index.html';
+			}, false);
+			var buttonDownload = document.getElementById("dCode");
+			var buttonReset = document.getElementById("resetCode");
+			buttonReset.addEventListener('click', function(event) {
+				if (confirm('确认要放弃当前编辑?') === true) {
+					editor.setValue(defaultCode);
+					save();
+				}
+			}, false);
+
+			document.getElementById("pop").addEventListener('click', popup);
+
+			function popup() {
+				var element = document.getElementById('popup');
+				var update = function() {
+					element.style.left = ((window.innerWidth - element.offsetWidth) / 2) + 'px';
+					element.style.top = ((window.innerHeight - element.offsetHeight) / 2) + 'px';
+				};
+				window.addEventListener('load', update, false);
+				window.addEventListener('resize', update, false);
+				element.style.display = '';
+				element.style.left = ((window.innerWidth - element.offsetWidth) / 2) + 'px';
+				element.style.top = ((window.innerHeight - element.offsetHeight) / 2) + 'px';
+			}
+
+			 // events
+			document.addEventListener('drop', function(event) {
+				event.preventDefault();
+				event.stopPropagation();
+				var file = event.dataTransfer.files[0];
+				documents[0].filename = file.name;
+				documents[0].filetype = file.type;
+				var reader = new FileReader();
+				reader.onload = function(event) {
+					editor.setValue(event.target.result);
+				};
+				reader.readAsText(file);
+			}, false);
+			document.addEventListener('keydown', function(event) {
+				if (event.keyCode === 83 && (event.ctrlKey === true || event.metaKey === true)) {
+					event.preventDefault();
+					save();
+				}
+				if (event.keyCode === 13 && (event.ctrlKey === true || event.metaKey === true)) {
+					update();
+				}
+				if (event.keyCode === 27) {
+					toggle();
+				}
+			}, false);
+			 // actions
+
+			$('#fullscreem').click(function() {
+				screenfull.toggle(preview);
+				update()
+			});
+			var ca;
+			var update = function() {
+				var value = editor.getValue();
+				if (validate(value)) {
+					// remove previous iframe
+					if (preview.children.length > 0) {
+						preview.removeChild(preview.firstChild);
+					}
+					var iframe = document.createElement('iframe');
+					iframe.style.width = "100%";
+					iframe.style.height = "100%";
+					iframe.style.border = '0';
+					ca = iframe;
+					$(iframe).attr("scrolling", "no");
+					$(iframe).attr("id", "result");
+					$(iframe).css("backgroundColor", "#EFEFEF");
+					preview.appendChild(iframe);
+					var content = iframe.contentDocument || iframe.contentWindow.document;
+					value = value.replace('<script>', '<script>if ( window.innerWidth === 0 ) { window.innerWidth = parent.innerWidth; window.innerHeight = parent.innerHeight; }');
+					content.open();
+					content.write(value);
+					content.close();
+					iframe.onload = function() {
+						var c = $("#result").contents().find("canvas");
+						c.css("width", "100%");
+						c.css("height", "100%");
+					}
+				}
+
+			};
+
+			var errorLines = [];
+			var widgets = [];
+			var validate = function(value) {
+				return editor.operation(function() {
+					while (errorLines.length > 0) {
+						editor.removeLineClass(errorLines.shift(), 'background', 'errorLine');
+					}
+					for (var i = 0; i < widgets.length; i++) {
+						editor.removeLineWidget(widgets[i]);
+					}
+					widgets.length = 0;
+					// remove html
+					var string = '\n';
+					var lines = value.split('\n');
+					var lineCurrent = 0,
+						lineTotal = lines.length;
+					while (lineCurrent < lineTotal && lines[lineCurrent].indexOf('<script>') === -1) {
+						string += '\n';
+						lineCurrent++;
+					}
+					var lineStart = lineCurrent++;
+					while (lineCurrent < lineTotal && lines[lineCurrent].indexOf('<\/script>') === -1) {
+						string += lines[lineCurrent] + '\n';
+						lineCurrent++;
+					}
+					try {
+						var result = esprima.parse(string, {
+							tolerant: true
+						}).errors;
+
+						for (var i = 0; i < result.length; i++) {
+							var error = result[i];
+							var message = document.createElement('div');
+							message.className = 'esprima-error';
+							message.textContent = error.message.replace(/Line [0-9]+: /, '');
+							var lineNumber = error.lineNumber - 1;
+							errorLines.push(lineNumber);
+							editor.addLineClass(lineNumber, 'background', 'errorLine');
+							var widget = editor.addLineWidget(
+								lineNumber,
+								message
+							);
+							widgets.push(widget);
+						}
+					} catch (error) {
+						var message = document.createElement('div');
+						message.className = 'esprima-error';
+						message.textContent = error.message.replace(/Line [0-9]+: /, '');
+						var lineNumber = error.lineNumber - 1;
+						errorLines.push(lineNumber);
+						editor.addLineClass(lineNumber, 'background', 'errorLine');
+						var widget = editor.addLineWidget(
+							lineNumber,
+							message
+						);
+						widgets.push(widget);
+					}
+					return errorLines.length === 0;
+				});
+			};
+
+			var save = function() {
+				documents[0].code = editor.getValue();
+				localStorage.codeeditor = JSON.stringify(documents);
+				var blob = new Blob([editor.getValue()], {
+					type: documents[0].filetype
+				});
+				var objectURL = URL.createObjectURL(blob);
+				buttonDownload.href = objectURL;
+				var date = new Date();
+				buttonDownload.download = documents[0].filename;
+				//buttonSave.style.display = 'none';
+				buttonDownload.style.display = '';
+			};
+			update();
+
+			CodeMirror.commands.autocomplete = function(cm, pred) {
+				var cur = cm.getCursor();
+				if (!pred || pred()) setTimeout(function() {
+					if (!cm.state.completionActive)
+						cm.showHint({
+							completeSingle: false
+						});
+				}, 10);
+				return CodeMirror.Pass;
+			}
+		</script>
+	</body>
+
+</html>

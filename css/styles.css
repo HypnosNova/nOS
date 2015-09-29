@@ -1,6 +1,9 @@
 * {
 	margin: 0;
 	padding: 0;
+	/*-ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;*/
 }
 /*-------------------------
 	General Styles
@@ -161,4 +164,23 @@ a:hover {
 option {
 	color: #ffffff;
 	background-color: #000000;
+}
+
+.screen .uicon {
+	float: left;
+	width: 80px;
+	height: 80px;
+	margin: 40px;
+	position: relative;
+	cursor:default;
+	pointer-events: none;
+}
+.os_title{
+	height: 50px;
+	text-align: center;
+}
+.os_title p{
+	font-family: "微软雅黑";
+	font-size: 50px;
+	font-weight: bold;
 }

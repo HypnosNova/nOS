@@ -1,0 +1,23 @@
+.tooltipBorder {
+	position: absolute;
+	background-color: transparent;
+	color: white;
+	border-bottom: 3px solid #fff;
+	width: 0px;
+	float: left;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+.tooltipText {
+	position: absolute;
+	background-color: transparent;
+	color: white;
+	font-family: "微软雅黑";
+	width: auto;
+	opacity: 0;
+	float: left;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}

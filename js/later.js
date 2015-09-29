@@ -61,7 +61,11 @@ Icon = (function() {
 	function Icon(obj) {
 		this.id = obj.appIcon;
 		this.title = obj.appTitle;
-		this.markup = "<div class='icon' style='background-image:url(img/icons/" + this.id + ")' title='" + this.title + "' id='" + this.title + "' appId='" + obj.appId + "'></div>";
+		if (obj.unable) {
+			this.markup = "<div class='uicon' style=''></div>";
+		} else {
+			this.markup = "<div class='icon' style='background-image:url(img/icons/" + this.id + ")' title='" + this.title + "' id='" + this.title + "' appId='" + obj.appId + "'></div>";
+		}
 	}
 
 	return Icon;
@@ -110,7 +114,7 @@ Stage = (function() {
 		while (num--) {
 			s = new Screen(icons.slice(i, i + 15));
 			this.screens.push(s);
-			i += 9;
+			i += 15;
 		}
 	}
 
@@ -195,13 +199,13 @@ function changeFlage() {
 
 //通过预先设定的WebApp数组生成图标
 function setAllIcons(array) {
-	var result = new Array();
-	for (var i = 0; i < array.length; i++) {
-		result.push(new Icon(array[i]));
+		var result = new Array();
+		for (var i = 0; i < array.length; i++) {
+			result.push(new Icon(array[i]));
+		}
+		return result;
 	}
-	return result;
-}
-//通过预先设定的WebApp数组设定对应的点击事件来开启应用
+	//通过预先设定的WebApp数组设定对应的点击事件来开启应用
 
 function bindAllClick(array) {
 	for (var i = 0; i < array.length; i++) {

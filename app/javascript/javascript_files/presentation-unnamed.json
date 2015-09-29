@@ -1,0 +1,853 @@
+{
+  "slides": [
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 223,
+          "y": 267,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu, sans-serif\">JavaScript基础</font>",
+          "size": 87,
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 0,
+      "selected": false,
+      "active": false,
+      "x": 584,
+      "y": 153
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 53,
+          "y": 49,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu\">JavaScript是一种面向对象与<br>函数式脚本语言。<br></font>",
+          "size": 67,
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 186,
+          "y": 250,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu\">html页面脚本<br>node.js服务器脚本<br>mongodb数据库脚本<br>unity引擎脚本<br>……<br></font>",
+          "size": 65,
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 1,
+      "selected": false,
+      "active": false,
+      "x": 588,
+      "y": 366
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 41,
+          "y": 35,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu\">JS性质：</font>",
+          "size": 72,
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 188,
+          "y": 170,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu\">解释执行</font>",
+          "size": 72,
+          "selected": false,
+          "rotate": 0
+        },
+        {
+          "TextBox": {},
+          "x": 190,
+          "y": 326,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu\">弱类型</font><br>",
+          "size": 72,
+          "selected": false,
+          "rotate": 0
+        },
+        {
+          "TextBox": {},
+          "x": 191,
+          "y": 485,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu\">单线程</font><br>",
+          "size": 72,
+          "selected": false,
+          "rotate": 0
+        },
+        {
+          "TextBox": {},
+          "x": 194,
+          "y": 627,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu\">没有重载</font><br>",
+          "size": 72,
+          "selected": false,
+          "rotate": 0
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 1.54,
+      "rotateZ": 0.89,
+      "index": 2,
+      "selected": false,
+      "active": false,
+      "x": 229,
+      "y": 281
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 33,
+          "y": 20,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu\">基础语法：</font>",
+          "size": 72,
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 74,
+          "y": 124,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu\">定义变量：var a;<br></font>定义函数：var b = function(){};\n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 或：function b(){};<br>调用函数：b();<br>条件语句：if(1+a==2){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//当1+a等于2时执行<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }else{<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//当1+a不等于2时执行<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>",
+          "size": 56,
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": -1.56,
+      "rotateY": 0,
+      "rotateZ": 1.48,
+      "index": 3,
+      "selected": false,
+      "active": false,
+      "x": 898,
+      "y": 274
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 26,
+          "y": 8,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu\">循环语句：for(var i=0;i&lt;10;i++){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log(i);&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert(i);<br></font>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br><br>或者：var i=0;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while(i&lt;10){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i++;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br><br>或者：do{<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i++;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }while(i&lt;10);<br>",
+          "size": 48,
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": -1.56,
+      "rotateZ": 0,
+      "index": 4,
+      "selected": false,
+      "active": true,
+      "x": 531,
+      "y": 701
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 25,
+          "y": 41,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "text": "<font face=\"Ubuntu\">定义数组：var arr = [ ];<br></font>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;或者：var arr = new Array();<br>遍历数组：var arr = [1,2,3,4,5];<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for( var i=0;i&lt;arr.length;i++){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(arr[i]);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>或： &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; for( element &nbsp;in &nbsp;arr){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(element);\n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>",
+          "size": 56,
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 5,
+      "selected": false,
+      "active": false,
+      "x": 1152,
+      "y": 459
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 19,
+          "y": 18,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">arguments 对象</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 93,
+          "y": 105,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">function fun (){<br>&nbsp; &nbsp; &nbsp; &nbsp; var str=\"\";<br>&nbsp; &nbsp; &nbsp; &nbsp; for (var i=0;i&lt;arguments.length;i++) {\r<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;str += arguments[i];\r<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; alert(str);<br>}<br><br>fun(\"a\",\"b\",\"c\");//输出abc<br>fun(1,2);//输出12<br></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": -0.52,
+      "rotateZ": 2.9,
+      "index": 6,
+      "selected": false,
+      "active": false,
+      "x": 1147,
+      "y": 641
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 26,
+          "y": 15,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 63,
+          "text": "<font face=\"Ubuntu\">JSON：JS对象的表示方式</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 77,
+          "y": 91,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 56,
+          "text": "<font face=\"Ubuntu\">var character= {<br>&nbsp; &nbsp; &nbsp; &nbsp;name: \"Ezreal\",<br>&nbsp; &nbsp; &nbsp; &nbsp;age: 20,<br>&nbsp; &nbsp; &nbsp; &nbsp;nationality: \"Peart Wolf\",<br>&nbsp; &nbsp; &nbsp; &nbsp;hobbies: [ \"Travel\" , \"Play LOL\" ],<br>&nbsp; &nbsp; &nbsp; &nbsp;detail: {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; job: \"Explorer \",<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; apearance: \"Handsome\"<br>&nbsp; &nbsp; &nbsp; &nbsp;}<br>}</font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 3.16,
+      "index": 7,
+      "selected": false,
+      "active": false,
+      "x": 1419,
+      "y": 462
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 20,
+          "y": 22,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">获取json内属性</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 99,
+          "y": 89,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">var age = character.age;<br>var oneHobby = character.bobbies[0];<br>var job = character.detail.job;<br></font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 24,
+          "y": 375,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">为json添加/修改属性</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 96,
+          "y": 442,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">character.height = 175;<br>character.age = 21;<br>character.bobbies.push(\"Football\");<br></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0.96,
+      "rotateZ": -2.23,
+      "index": 8,
+      "selected": false,
+      "active": false,
+      "x": 1687,
+      "y": 259
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 22,
+          "y": 14,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 55,
+          "text": "<font face=\"Ubuntu\">遍历json</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 108,
+          "y": 83,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 42,
+          "text": "<font face=\"Ubuntu\">for(property &nbsp;in &nbsp;character){<br>&nbsp; &nbsp; &nbsp; &nbsp; //输出key值<br></font>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log(property);&nbsp;<br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//输出value值<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log(character[property]);&nbsp;<br>}<br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 41,
+          "y": 452,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 55,
+          "text": "<font face=\"Ubuntu\">json转string</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 96,
+          "y": 534,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 43,
+          "text": "<font face=\"Ubuntu\">JSON.stringify(character);</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 97,
+          "y": 682,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">str = eval(\"(\" + character+ \")\");</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 34,
+          "y": 611,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 55,
+          "text": "<font face=\"Ubuntu\">string转json</font><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": -3.24,
+      "rotateZ": -1.9,
+      "index": 9,
+      "selected": false,
+      "active": false,
+      "x": 1803,
+      "y": 593
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 34,
+          "y": 39,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">js面向对象机制简述</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 75,
+          "y": 118,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">每一个function是一个独立的对象，一个<br>函数可以作为另一个函数的参数</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 78,
+          "y": 253,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">prototype：原型法设计模式，返回对象<br>类型原型的引用</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 78,
+          "y": 384,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">new关键字： 以new的方式运行的话，函<br>数会被当成一个构造函数，从而得到一个<br>对象。也可以说，new是一个运算符，这<br>个运算符的执行结果是一个对象。</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 80,
+          "y": 632,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">Object对象是其他所有JS对象的基类</font><br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 10,
+      "selected": false,
+      "active": false,
+      "x": 2187,
+      "y": 364
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 47,
+          "y": 84,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">var Student = function(name) {\n<br></font>&nbsp; &nbsp; &nbsp; &nbsp; this.name=name;\n<br>&nbsp; &nbsp; &nbsp; &nbsp; this.sayHello = function() {\n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert(\"hello, I'm \" + this.name);\n<br>&nbsp; &nbsp; &nbsp; &nbsp; }\n<br>&nbsp; &nbsp; &nbsp; &nbsp; var name2=name;<br>&nbsp; &nbsp; &nbsp; &nbsp; var sayHelloWorld = function(){\n<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert(\"HelloWorld, I'm \"+ name2);\n<br>&nbsp; &nbsp; &nbsp; &nbsp; }\n<br>}<br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 46,
+          "y": 19,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">定义一个类，并创建一个实例对象</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 49,
+          "y": 663,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">var std=new Student(\"Nova\");</font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 3.16,
+      "rotateZ": 0,
+      "index": 11,
+      "selected": false,
+      "active": false,
+      "x": 2184,
+      "y": 565
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 36,
+          "y": 30,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">调用对象方法</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 68,
+          "y": 103,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 50,
+          "text": "<font face=\"Ubuntu\">std.sayHello();//运行结果是啥？<br>std.sayHelloWorld();//运行结果是啥？<br></font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 39,
+          "y": 267,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">原型方法使用</font><br>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 70,
+          "y": 339,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">Student.prototype={<br>&nbsp; &nbsp; &nbsp; &nbsp; sayChinese=function(){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; alert(\"大家好，我叫：\"+this.name);<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>}<br>std.sayChinese();<br></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 1.58,
+      "index": 12,
+      "selected": false,
+      "active": false,
+      "x": 2463,
+      "y": 364
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 41,
+          "y": 32,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">类方法的使用</font>",
+          "selected": false
+        },
+        {
+          "TextBox": {},
+          "x": 96,
+          "y": 118,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">Student.say=function(){<br>&nbsp; &nbsp; &nbsp; &nbsp; alert(\"学生类方法\");<br>}<br>Student.say();<br></font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 13,
+      "selected": false,
+      "active": false,
+      "x": 2182,
+      "y": 762
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 205,
+          "y": 152,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 75,
+          "text": "<font face=\"Ubuntu\">jQuery简介与使用</font>",
+          "selected": false
+        },
+        {
+          "src": "http://img1.imgtn.bdimg.com/it/u=189353677,1142846262&fm=21&gp=0.jpg",
+          "type": "Image",
+          "x": 270,
+          "y": 283,
+          "scale": {
+            "x": 1.5802047781569968,
+            "y": 1.5802047781569968,
+            "width": 463.00000000000006,
+            "height": 347.6450511945393
+          },
+          "imageType": "JPG",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 14,
+      "selected": false,
+      "active": false,
+      "x": 2559,
+      "y": 668
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 110,
+          "y": 244,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 48,
+          "text": "<font face=\"Ubuntu\">jQuery 是一个 JavaScript 库。\r<br></font>jQuery 极大地简化了 JavaScript 编程。\r<br>jQuery 很容易学习。<br>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": -2.5,
+      "index": 15,
+      "selected": false,
+      "active": false,
+      "x": 2808,
+      "y": 396
+    },
+    {
+      "components": [
+        {
+          "TextBox": {},
+          "x": 61,
+          "y": 295,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "type": "TextBox",
+          "size": 62,
+          "text": "<font face=\"Ubuntu\">直接看实例，了解jquery如何使用</font>",
+          "selected": false
+        }
+      ],
+      "z": 0,
+      "impScale": 3,
+      "rotateX": 0,
+      "rotateY": 0,
+      "rotateZ": 0,
+      "index": 16,
+      "selected": false,
+      "active": false,
+      "x": 2850,
+      "y": 763
+    }
+  ],
+  "activeSlide": {
+    "components": [
+      {
+        "TextBox": {},
+        "x": 26,
+        "y": 8,
+        "scale": {
+          "x": 1,
+          "y": 1
+        },
+        "type": "TextBox",
+        "text": "<font face=\"Ubuntu\">循环语句：for(var i=0;i&lt;10;i++){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log(i);&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert(i);<br></font>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br><br>或者：var i=0;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; while(i&lt;10){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i++;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br><br>或者：do{<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i++;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }while(i&lt;10);<br>",
+        "size": 48,
+        "selected": false
+      }
+    ],
+    "z": 0,
+    "impScale": 3,
+    "rotateX": 0,
+    "rotateY": -1.56,
+    "rotateZ": 0,
+    "index": 4,
+    "selected": false,
+    "active": true,
+    "x": 531,
+    "y": 701
+  },
+  "fileName": "presentation-unnamed",
+  "overviewX": 1539.5,
+  "overviewY": 458,
+  "deckVersion": "1.0",
+  "customBackgrounds": {
+    "bgs": []
+  }
+}
